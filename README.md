@@ -1,6 +1,6 @@
-# Shopping List
+# Lab3-Shopping List
 
-Tasks Implemented
+I have implemented the following tasks:
 - Alert Dialog box
 - Vertical Scroll
-- Setting Pages
+- Settings
