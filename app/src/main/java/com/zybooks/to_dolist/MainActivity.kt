@@ -140,27 +140,25 @@ class MainActivity : AppCompatActivity(), SensorEventListener, DeleteAllDialog.O
     }
 
     override fun onSensorChanged(event: SensorEvent) {
-        // Get accelerometer values
+        // get values in x,y,z using accelerometer
         val x: Float = event.values[0]
         val y: Float = event.values[1]
         val z: Float = event.values[2]
 
-        // Find magnitude of acceleration
+        // get magnitude of acceleration
         val currentAcceleration: Float = x * x + y * y + z * z
 
-        // Calculate difference between 2 readings
+        // get the difference between current acceleration & previous acceleration to get the displacement
         val delta = currentAcceleration - lastAcceleration
-
-        // Save for next time
         lastAcceleration = currentAcceleration
 
-        // Detect shake
+        // if phone is shook
         if (abs(delta) > SHAKE_THRESHOLD) {
             onYesClick()
         }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        // Nothing to do
+
     }
 }
